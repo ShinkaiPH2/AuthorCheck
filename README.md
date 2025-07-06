@@ -1,5 +1,7 @@
 # AuthorCheck - AI-Powered Text Analysis Tool
 
+[![Live Demo](https://img.shields.io/badge/Live%20App-Vercel-blue?logo=vercel)](https://author-check-one.vercel.app/)
+
 A modern, desktop-first text analysis application with AI-powered insights, built with React, TypeScript, and TailwindCSS.
 
 ## Features
