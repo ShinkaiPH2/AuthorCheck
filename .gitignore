@@ -72,7 +72,6 @@ test-results.xml
 .parcel-cache/
 .next/
 .nuxt/
-public/
 .npm/
 .jspm_packages/
 .yarn-integrity/

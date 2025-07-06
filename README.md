@@ -278,4 +278,18 @@ src/
 
 This software is licensed for personal and non-commercial use only. Modification, redistribution, or creation of derivative works is strictly prohibited without the express written consent of the copyright holder.
 
-See [LICENSE.txt](./LICENSE.txt) for full terms. 
+See [LICENSE.txt](./LICENSE.txt) for full terms.
+
+## Vercel Deployment: Fixing 404 on Refresh
+
+If you deploy to Vercel and use client-side routing (e.g., React Router), you may get a 404 error when refreshing a non-root page (like /analyze). To fix this, add a `vercel.json` file to your project root with the following content:
+
+```json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+```
+
+This will rewrite all routes to `index.html`, allowing your SPA to handle routing. 
