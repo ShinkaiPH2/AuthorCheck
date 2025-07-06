@@ -1,0 +1,124 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables (do NOT ignore .env.example)
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!*.env.example
+
+# Secrets and keys
+secrets/
+keys/
+*.key
+*.pem
+*.p12
+
+# IDE/editor files
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and test outputs
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+test-results.xml
+
+# Cache and tool outputs
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+public/
+.npm/
+.jspm_packages/
+.yarn-integrity/
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.node_repl_history
+*.tgz
+
+# Storybook
+.out/
+.storybook-out/
+
+# Temporary folders
+tmp/
+temp/
+local/
+.local/
+
+# AI/ML specific
+*.pkl
+*.h5
+*.model
+*.weights
+
+# PWA and Vite
+sw.js
+workbox-*.js
+.vite/
+
+# Sentry
+.sentryclirc
+
+# Bundle analyzer
+bundle-analyzer-report.html
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+docker-compose.override.yml
+
+# GitHub
+.github/
+
+# VSCODe
+.vscode/
