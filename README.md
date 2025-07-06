@@ -274,4 +274,6 @@ src/
 
 ## License
 
-MIT License - see LICENSE file for details. 
+This software is licensed for personal and non-commercial use only. Modification, redistribution, or creation of derivative works is strictly prohibited without the express written consent of the copyright holder.
+
+See [LICENSE.txt](./LICENSE.txt) for full terms. 
