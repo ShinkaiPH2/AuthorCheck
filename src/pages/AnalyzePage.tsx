@@ -71,20 +71,20 @@ export const AnalyzePage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 relative overflow-hidden">
+    <div className="min-h-screen pt-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 relative overflow-hidden">
       <Navbar />
       {/* Help Modal */}
       <HelpModal open={showHelp} onClose={() => setShowHelp(false)} />
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-400/10 to-secondary-400/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-futuristic-cyan/10 to-futuristic-purple/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-br from-primary-400/10 to-secondary-400/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-tr from-futuristic-cyan/10 to-futuristic-purple/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto p-2 sm:p-4">
-        {/* Main Content - Responsive dual-panel layout */}
-        <div className="flex flex-col md:grid md:grid-cols-5 gap-4 md:gap-8">
+        {/* Main Content - Responsive layout */}
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-4 lg:gap-8">
           {/* Left Panel - Input */}
-          <div className="md:col-span-3 space-y-4 sm:space-y-6">
+          <div className="lg:col-span-3 space-y-4 sm:space-y-6">
             <TextInputPanel
               text={text}
               setText={setText}
@@ -95,6 +95,7 @@ export const AnalyzePage = () => {
               isTyping={isTyping}
               hasText={hasText}
               analysis={analysis}
+              onHelpClick={() => setShowHelp(true)}
             />
             <AnalysisSettings
               autoAnalyze={autoAnalyze}
@@ -106,7 +107,7 @@ export const AnalyzePage = () => {
             />
           </div>
           {/* Right Panel - Analysis Results */}
-          <div className="md:col-span-2 mt-4 md:mt-0">
+          <div className="lg:col-span-2 mt-4 lg:mt-0">
             <AnalysisDisplay
               analysis={analysis}
               isAnalyzing={isAnalyzing || isTyping}

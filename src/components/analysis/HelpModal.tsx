@@ -28,8 +28,9 @@ export const HelpModal: React.FC<HelpModalProps> = ({ open, onClose }) => {
             <li>Paste or type your text in the left panel.</li>
             <li>Enable or disable <b>Automatic Analysis</b> in settings below the input.</li>
             <li>Click <b>Analyze Text</b> for manual analysis, or let it run automatically.</li>
-            <li>View results and insights in the right panel.</li>
+            <li>View results and insights in the right panel, including <b>AI Insights</b> and <b>Emotion Analysis</b>.</li>
           </ul>
+          <p><b>AI Insights</b> provide strengths, improvement suggestions, and writing tips based on your text. <b>Emotion Analysis</b> shows detected emotions and their intensity.</p>
           <p>For more details, see the <a href="https://github.com/your-repo/AuthorCheck#readme" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline">documentation</a>.</p>
         </div>
       </div>

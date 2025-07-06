@@ -152,7 +152,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
     <div className="space-y-6">
       {/* Tab Navigation */}
       <div 
-        className="flex overflow-x-auto no-scrollbar space-x-2 sm:space-x-3 p-1 sm:p-3 bg-white/90 dark:bg-gray-900/80 rounded-2xl border-2 border-primary-300 dark:border-gray-700/70 shadow-2xl dark:shadow-lg transition-all duration-300" 
+        className="flex overflow-x-auto no-scrollbar space-x-2 sm:space-x-3 p-1 sm:p-3 bg-white/90 dark:bg-gray-900/80 rounded-2xl border-2 border-primary-300 dark:border-gray-700/70 shadow-2xl dark:shadow-lg transition-all duration-300 max-w-full"
         role="tablist" 
         aria-label="Analysis tabs"
         onKeyDown={handleKeyDown}
@@ -162,7 +162,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
             key={tab.id}
             id={`${tab.id}-tab`}
             onClick={() => setActiveTab(tab.id)}
-            className={`min-w-[120px] sm:min-w-[140px] flex-1 px-4 sm:px-6 py-2 rounded-xl border border-primary-400 transition-colors duration-200 flex items-center space-x-2 group text-base sm:text-base
+            className={`min-w-[100px] sm:min-w-[120px] flex-1 px-2 sm:px-4 py-2 rounded-xl border border-primary-400 transition-colors duration-200 flex items-center space-x-2 group text-sm sm:text-base
               ${activeTab === tab.id
                 ? 'bg-gradient-to-r from-futuristic-cyan to-futuristic-purple text-white dark:bg-gradient-to-r dark:from-futuristic-darkblue dark:to-futuristic-darkpurple dark:text-white'
                 : 'bg-transparent text-primary-300 dark:text-primary-200'
@@ -183,13 +183,13 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
       {activeTab === 'overview' && (
         <div className="space-y-6" role="tabpanel" id="overview-panel" aria-labelledby="overview-tab">
           <Card>
-            <h3 className="text-lg font-semibold mb-6 text-gray-800 dark:text-gray-200 flex items-center space-x-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-800 dark:text-gray-200 flex items-center space-x-2">
               <div className="w-6 h-6 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
                 <BarChartIcon size={14} className="text-white" />
               </div>
               <span>Text Statistics</span>
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               <div className="text-center group">
                 <div className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{analysis.wordCount}</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Words</div>
@@ -389,7 +389,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">{analysis.aiAnalysis.advancedSentiment.context}</p>
               {analysis.aiAnalysis.advancedSentiment.emotions.length > 0 && (
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {analysis.aiAnalysis.advancedSentiment.emotions.map(emotion => (
                     <div key={emotion.emotion} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300 capitalize">{emotion.emotion}</span>
@@ -510,7 +510,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
               </h3>
               <div className="space-y-4">
                 {analysis.aiAnalysis.insights.map((insight, index) => (
-                  <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div key={index} className="flex flex-col sm:flex-row items-start sm:space-x-3 space-y-2 sm:space-y-0 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex-shrink-0 mt-1">
                       {insight.type === 'strength' ? (
                         <CheckCircleIcon size={16} className="text-green-500" />

@@ -13,6 +13,7 @@ interface TextInputPanelProps {
   isTyping: boolean;
   hasText: boolean;
   analysis: any;
+  onHelpClick: () => void;
 }
 
 export const TextInputPanel: React.FC<TextInputPanelProps> = ({
@@ -25,6 +26,7 @@ export const TextInputPanel: React.FC<TextInputPanelProps> = ({
   isTyping,
   hasText,
   analysis,
+  onHelpClick,
 }) => (
   <Card>
     <div className="space-y-6">
@@ -34,18 +36,33 @@ export const TextInputPanel: React.FC<TextInputPanelProps> = ({
             <BrainIcon size={16} className="text-white" />
           </div>
           <span>Text Input</span>
+          <button
+            type="button"
+            onClick={onHelpClick}
+            aria-label="Help"
+            className="p-1.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-400 transition-colors duration-200 relative group"
+            title="Get help with text analysis features"
+          >
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-primary-500">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 dark:bg-gray-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+              Get help with text analysis features
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-700"></div>
+            </div>
+          </button>
         </h2>
         <div className="flex items-center space-x-2">
           <input
             type="file"
-            accept=".txt,.doc,.docx,.pdf"
+            accept=".txt,.md,.csv,.json,.xml,.log,.html,.rtf,.doc,.docx,.pdf"
             onChange={handleFileUpload}
             className="hidden"
             id="file-upload"
           />
           <label
             htmlFor="file-upload"
-            className="cursor-pointer text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 flex items-center space-x-1 transition-colors duration-200"
+            className="cursor-pointer text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 flex items-center space-x-2 px-3 py-2 rounded-lg border-2 border-primary-200 dark:border-primary-700/50 bg-primary-50 dark:bg-primary-900/20 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
           >
             <UploadIcon size={16} />
             <span>Upload file</span>
