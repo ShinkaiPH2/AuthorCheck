@@ -44,11 +44,11 @@ export const AnalyzePage = () => {
     setIsAnalyzing(true);
     try {
       const result = await analyzeText(content);
-      setAnalysis(result);
+    setAnalysis(result);
     } catch (error) {
       console.error('Analysis failed:', error);
     } finally {
-      setIsAnalyzing(false);
+    setIsAnalyzing(false);
     }
   };
 
@@ -79,7 +79,7 @@ export const AnalyzePage = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-br from-primary-400/10 to-secondary-400/10 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-tr from-futuristic-cyan/10 to-futuristic-purple/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-      </div>
+            </div>
       <div className="relative z-10 max-w-7xl mx-auto p-2 sm:p-4">
         {/* Main Content - Responsive layout */}
         <div className="flex flex-col lg:grid lg:grid-cols-5 gap-4 lg:gap-8">

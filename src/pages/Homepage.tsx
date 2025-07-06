@@ -21,7 +21,7 @@ export const Homepage = () => {
           <div className="relative mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 animate-shimmer bg-gradient-to-r from-primary-600 via-secondary-600 to-futuristic-cyan bg-clip-text text-transparent break-words">
               AI-Powered <span className="inline-block animate-parallax-x">Text Analysis</span>
-            </h1>
+          </h1>
             <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 via-secondary-600/20 to-futuristic-cyan/20 blur-3xl -z-10" />
           </div>
           <p className="text-base sm:text-lg md:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl sm:max-w-4xl mx-auto leading-relaxed animate-fade-in">
@@ -35,14 +35,14 @@ export const Homepage = () => {
                   <span>Start Analysis</span>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-futuristic-cyan to-futuristic-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Button>
+            </Button>
             </Link>
             <Link to="/learn-more" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto group animate-fade-in">
                 <span className="group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  Learn More
+              Learn More
                 </span>
-              </Button>
+            </Button>
             </Link>
           </div>
         </div>
@@ -125,11 +125,11 @@ export const Homepage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-3xl blur-3xl" />
           <div className="relative z-10">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
-              Ready to Analyze Your Text?
-            </h2>
+            Ready to Analyze Your Text?
+          </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto animate-fade-in">
               Get started with our powerful text analysis tools today and unlock the secrets hidden in your writing.
-            </p>
+          </p>
             <Link to="/analyze">
               <Button variant="primary" size="lg" className="group relative overflow-hidden animate-glow-pulse">
                 <span className="relative z-10 flex items-center space-x-2">
@@ -137,7 +137,7 @@ export const Homepage = () => {
                   <span>Start Free Analysis</span>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-futuristic-cyan via-futuristic-purple to-futuristic-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Button>
+          </Button>
             </Link>
           </div>
         </div>
