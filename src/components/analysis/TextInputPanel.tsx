@@ -80,7 +80,7 @@ export const TextInputPanel: React.FC<TextInputPanelProps> = ({
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Paste your text here for analysis..."
-              className="w-full min-h-[200px] max-h-[700px] p-4 resize-y text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors transition-shadow duration-300 overflow-y-auto box-border bg-transparent border-none outline-none rounded-xl"
+              className="w-full min-h-[350px] max-h-[700px] p-4 resize-y text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors transition-shadow duration-300 overflow-y-auto box-border bg-transparent border-none outline-none rounded-xl"
               aria-describedby="text-input-help"
             />
           </div>

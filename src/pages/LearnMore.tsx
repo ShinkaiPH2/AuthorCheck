@@ -3,6 +3,7 @@ import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { BrainIcon, ZapIcon, ShieldIcon, BarChartIcon } from '../components/ui/Icons';
 import { Navbar } from '../components/ui/Navbar';
+import { TypingAnimation } from '../components/ui/TypingAnimation';
 
 export const LearnMore = () => {
   return (
@@ -19,8 +20,13 @@ export const LearnMore = () => {
         {/* Hero Section */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-slide-up overflow-visible">
           <div className="relative mb-6 sm:mb-8 overflow-visible">
-            <h1 className="relative z-20 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-[1.2] pb-2 overflow-visible animate-shimmer bg-gradient-to-r from-primary-400 via-secondary-400 to-futuristic-cyan bg-clip-text text-transparent dark:from-primary-400 dark:via-secondary-400 dark:to-futuristic-cyan drop-shadow-[0_2px_6px_rgba(60,60,60,0.10)] dark:drop-shadow-[0_2px_12px_rgba(80,180,255,0.25)]">
-              Discover the <span className="inline-block animate-parallax-x">Power of AI</span>
+            <h1 className="relative z-20 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-[1.2] pb-2 overflow-visible bg-gradient-to-r from-primary-400 via-secondary-400 to-futuristic-cyan bg-clip-text text-transparent dark:from-primary-400 dark:via-secondary-400 dark:to-futuristic-cyan drop-shadow-[0_2px_6px_rgba(60,60,60,0.10)] dark:drop-shadow-[0_2px_12px_rgba(80,180,255,0.25)]">
+              <TypingAnimation 
+                text="Discover the Power of AI" 
+                speed={120} 
+                delay={500}
+                showCursor={true}
+              />
             </h1>
             <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 via-secondary-600/20 to-futuristic-cyan/20 blur-3xl -z-10" />
           </div>
