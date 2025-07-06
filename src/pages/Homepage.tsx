@@ -1,51 +1,23 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-import { ThemeToggle } from '../components/ui/ThemeToggle';
 import { BrainIcon, ZapIcon, ShieldIcon, BarChartIcon } from '../components/ui/Icons';
 import { Navbar } from '../components/ui/Navbar';
 
 export const Homepage = () => {
-  // Parallax state
-  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
-
-  // Mouse move handler
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - left) / width;
-    const y = (e.clientY - top) / height;
-    setMouse({ x, y });
-  };
-
   return (
     <div className="min-h-screen pt-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 relative overflow-hidden">
       <Navbar />
       {/* Interactive Parallax Blobs */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div
-          className="absolute w-[600px] h-[600px] bg-futuristic-cyan/30 rounded-full blur-3xl"
-          style={{
-            left: `calc(10% + ${(mouse.x - 0.5) * 60}px)`,
-            top: `calc(5% + ${(mouse.y - 0.5) * 40}px)`,
-            transition: 'left 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s cubic-bezier(0.4,0,0.2,1)',
-          }}
+          className="absolute w-[600px] h-[600px] bg-futuristic-cyan/30 dark:bg-futuristic-cyan/20 rounded-full blur-3xl"
         />
         <div
-          className="absolute w-[400px] h-[400px] bg-futuristic-purple/30 rounded-full blur-2xl"
-          style={{
-            right: `calc(8% + ${(0.5 - mouse.x) * 40}px)`,
-            bottom: `calc(10% + ${(0.5 - mouse.y) * 60}px)`,
-            transition: 'right 0.3s cubic-bezier(0.4,0,0.2,1), bottom 0.3s cubic-bezier(0.4,0,0.2,1)',
-          }}
+          className="absolute w-[400px] h-[400px] bg-futuristic-purple/30 dark:bg-futuristic-purple/20 rounded-full blur-2xl"
         />
         <div
-          className="absolute w-[300px] h-[300px] bg-futuristic-pink/20 rounded-full blur-2xl"
-          style={{
-            left: `calc(60% + ${(mouse.x - 0.5) * 30}px)`,
-            top: `calc(60% + ${(0.5 - mouse.y) * 30}px)`,
-            transition: 'left 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s cubic-bezier(0.4,0,0.2,1)',
-          }}
+          className="absolute w-[300px] h-[300px] bg-futuristic-pink/20 dark:bg-futuristic-pink/10 rounded-full blur-2xl"
         />
       </div>
 
@@ -83,7 +55,7 @@ export const Homepage = () => {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          <Card className="group animate-fade-in">
+          <Card className="group animate-fade-in bg-white dark:bg-gray-900">
             <div className="text-center">
               <div className="relative mb-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto animate-pulse-slow">
@@ -96,7 +68,7 @@ export const Homepage = () => {
               </p>
             </div>
           </Card>
-          <Card className="group animate-fade-in">
+          <Card className="group animate-fade-in bg-white dark:bg-gray-900">
             <div className="text-center">
               <div className="relative mb-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-futuristic-cyan to-futuristic-blue rounded-2xl flex items-center justify-center mx-auto animate-pulse-slow">
@@ -109,7 +81,7 @@ export const Homepage = () => {
               </p>
             </div>
           </Card>
-          <Card className="group animate-fade-in">
+          <Card className="group animate-fade-in bg-white dark:bg-gray-900">
             <div className="text-center">
               <div className="relative mb-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-futuristic-purple to-futuristic-pink rounded-2xl flex items-center justify-center mx-auto animate-pulse-slow">
@@ -125,7 +97,7 @@ export const Homepage = () => {
         </div>
 
         {/* Statistics Section */}
-        <Card className="mb-20 relative overflow-hidden animate-fade-in">
+        <Card className="mb-20 relative overflow-hidden animate-fade-in bg-white dark:bg-gray-900">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-secondary-500/5" />
           <div className="relative z-10 text-center">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 animate-fade-in">

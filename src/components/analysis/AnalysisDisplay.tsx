@@ -246,7 +246,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
             <h3 className="text-lg font-semibold mb-6 text-gray-800 dark:text-gray-200">Top Words</h3>
             {analysis.topWords.length > 0 ? (
               <div className="space-y-3">
-                {analysis.topWords.map((word, index) => (
+                {analysis.topWords.map(word => (
                   <div key={word.word} className="flex items-center justify-between group/item">
                     <span className="font-medium text-gray-700 dark:text-gray-300 group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 transition-colors">{word.word}</span>
                     <div className="flex items-center space-x-2">
@@ -340,7 +340,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
                       fill="#8884d8"
                       dataKey="count"
                     >
-                      {topWordsData.map((entry, index) => (
+                      {topWordsData.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
@@ -390,7 +390,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
               <p className="text-sm text-gray-600 dark:text-gray-400">{analysis.aiAnalysis.advancedSentiment.context}</p>
               {analysis.aiAnalysis.advancedSentiment.emotions.length > 0 && (
                 <div className="grid grid-cols-2 gap-2">
-                  {analysis.aiAnalysis.advancedSentiment.emotions.map((emotion, index) => (
+                  {analysis.aiAnalysis.advancedSentiment.emotions.map(emotion => (
                     <div key={emotion.emotion} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300 capitalize">{emotion.emotion}</span>
                       <div className="flex items-center space-x-2">
@@ -419,7 +419,7 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
                 <span>Detected Topics</span>
               </h3>
               <div className="space-y-3">
-                {analysis.aiAnalysis.topics.map((topic, index) => (
+                {analysis.aiAnalysis.topics.map(topic => (
                   <div key={topic.topic} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div>
                       <span className="font-medium text-gray-800 dark:text-gray-200">{topic.topic}</span>

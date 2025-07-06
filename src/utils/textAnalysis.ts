@@ -166,14 +166,14 @@ const getTopWords = (words: string[], limit: number): Array<{ word: string; coun
 };
 
 // AI Analysis Functions - exported for use in AI service
-export const performAIAnalysis = (text: string, words: string[], sentences: string[], paragraphs: string[]) => {
+export const performAIAnalysis = (text: string, words: string[], sentences: string[]) => {
   return {
     advancedSentiment: analyzeAdvancedSentiment(text),
-    topics: detectTopics(text, words),
+    topics: detectTopics(text),
     writingStyle: analyzeWritingStyle(text, words, sentences),
     insights: generateInsights(text, words, sentences),
     plagiarismRisk: assessPlagiarismRisk(text),
-    contentQuality: assessContentQuality(text, words, sentences),
+    contentQuality: assessContentQuality(words, sentences),
   };
 };
 
@@ -213,7 +213,7 @@ const generateSentimentContext = (emotions: Array<{ emotion: string; score: numb
   return `The text primarily conveys ${primaryEmotion.emotion} with ${primaryEmotion.intensity} intensity.`;
 };
 
-const detectTopics = (text: string, words: string[]) => {
+const detectTopics = (text: string) => {
   const topicKeywords = {
     'Technology': ['technology', 'software', 'computer', 'digital', 'ai', 'machine', 'data', 'algorithm'],
     'Business': ['business', 'company', 'market', 'profit', 'strategy', 'management', 'leadership'],
@@ -388,7 +388,7 @@ const assessPlagiarismRisk = (text: string) => {
   };
 };
 
-const assessContentQuality = (text: string, words: string[], sentences: string[]) => {
+const assessContentQuality = (words: string[], sentences: string[]) => {
   // Calculate various quality metrics
   const clarity = Math.min(100, Math.max(0, 100 - (words.length / sentences.length - 15) * 2));
   const coherence = Math.min(100, Math.max(0, 100 - Math.random() * 20));

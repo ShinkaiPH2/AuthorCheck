@@ -30,7 +30,6 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
-          ui: ['react-router-dom'],
         },
         // Optimize chunk naming
         chunkFileNames: 'assets/js/[name]-[hash].js',

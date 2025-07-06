@@ -92,11 +92,11 @@ class AIService {
 
       switch (this.config.apiType) {
         case 'gemini':
-          return await this.analyzeWithGemini(text, analysisTypes);
+          return await this.analyzeWithGemini(text);
         case 'openai':
-          return await this.analyzeWithOpenAI(text, analysisTypes);
+          return await this.analyzeWithOpenAI(text);
         case 'claude':
-          return await this.analyzeWithClaude(text, analysisTypes);
+          return await this.analyzeWithClaude(text);
         case 'custom':
           return await this.analyzeWithCustom(text, analysisTypes);
         default:
@@ -114,10 +114,10 @@ class AIService {
   /**
    * Analyze text using Gemini API
    */
-  private async analyzeWithGemini(text: string, analysisTypes: string[] = ['all']): Promise<AIAnalysisResponse> {
+  private async analyzeWithGemini(text: string): Promise<AIAnalysisResponse> {
     try {
       const provider = this.config.providers.gemini;
-      const prompt = this.buildAnalysisPrompt(text, analysisTypes);
+      const prompt = this.buildAnalysisPrompt(text);
       
       const geminiRequest = {
         contents: [{
@@ -154,7 +154,7 @@ class AIService {
       }
 
       // Parse Gemini response and convert to our format
-      const aiAnalysis = this.parseGeminiResponse(result, text);
+      const aiAnalysis = this.parseGeminiResponse(result);
       
       return { success: true, data: aiAnalysis };
     } catch (error) {
@@ -169,10 +169,10 @@ class AIService {
   /**
    * Analyze text using OpenAI API
    */
-  private async analyzeWithOpenAI(text: string, analysisTypes: string[] = ['all']): Promise<AIAnalysisResponse> {
+  private async analyzeWithOpenAI(text: string): Promise<AIAnalysisResponse> {
     try {
       const provider = this.config.providers.openai;
-      const prompt = this.buildAnalysisPrompt(text, analysisTypes);
+      const prompt = this.buildAnalysisPrompt(text);
       
       const openaiRequest = {
         model: provider.model,
@@ -212,7 +212,7 @@ class AIService {
       }
 
       // Parse OpenAI response and convert to our format
-      const aiAnalysis = this.parseOpenAIResponse(result, text);
+      const aiAnalysis = this.parseOpenAIResponse(result);
       
       return { success: true, data: aiAnalysis };
     } catch (error) {
@@ -227,10 +227,10 @@ class AIService {
   /**
    * Analyze text using Claude API
    */
-  private async analyzeWithClaude(text: string, analysisTypes: string[] = ['all']): Promise<AIAnalysisResponse> {
+  private async analyzeWithClaude(text: string): Promise<AIAnalysisResponse> {
     try {
       const provider = this.config.providers.claude;
-      const prompt = this.buildAnalysisPrompt(text, analysisTypes);
+      const prompt = this.buildAnalysisPrompt(text);
       
       const claudeRequest = {
         model: provider.model,
@@ -267,7 +267,7 @@ class AIService {
       }
 
       // Parse Claude response and convert to our format
-      const aiAnalysis = this.parseClaudeResponse(result, text);
+      const aiAnalysis = this.parseClaudeResponse(result);
       
       return { success: true, data: aiAnalysis };
     } catch (error) {
@@ -324,7 +324,7 @@ class AIService {
   /**
    * Build analysis prompt for all LLM providers
    */
-  private buildAnalysisPrompt(text: string, analysisTypes: string[]): string {
+  private buildAnalysisPrompt(text: string): string {
     return `Analyze the following text and provide a comprehensive analysis in JSON format. 
 
 Text to analyze:
@@ -385,7 +385,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
   /**
    * Parse Gemini API response
    */
-  private parseGeminiResponse(geminiResponse: any, originalText: string): TextAnalysis['aiAnalysis'] {
+  private parseGeminiResponse(geminiResponse: any): TextAnalysis['aiAnalysis'] {
     try {
       const responseText = geminiResponse.candidates?.[0]?.content?.parts?.[0]?.text || '';
       return this.parseLLMResponse(responseText);
@@ -398,7 +398,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
   /**
    * Parse OpenAI API response
    */
-  private parseOpenAIResponse(openaiResponse: any, originalText: string): TextAnalysis['aiAnalysis'] {
+  private parseOpenAIResponse(openaiResponse: any): TextAnalysis['aiAnalysis'] {
     try {
       const responseText = openaiResponse.choices?.[0]?.message?.content || '';
       return this.parseLLMResponse(responseText);
@@ -411,7 +411,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
   /**
    * Parse Claude API response
    */
-  private parseClaudeResponse(claudeResponse: any, originalText: string): TextAnalysis['aiAnalysis'] {
+  private parseClaudeResponse(claudeResponse: any): TextAnalysis['aiAnalysis'] {
     try {
       const responseText = claudeResponse.content?.[0]?.text || '';
       return this.parseLLMResponse(responseText);
@@ -475,7 +475,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
   async getAIAnalysis(text: string): Promise<TextAnalysis['aiAnalysis']> {
     // Check if AI is enabled
     if (!this.config.enabled) {
-      return this.getLocalAIAnalysis(text);
+      return this.getLocalAIAnalysis();
     }
 
     // Try AI analysis first
@@ -488,7 +488,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
     // Fallback to local analysis if AI fails and fallback is enabled
     if (this.config.enableFallback) {
       console.warn('AI analysis failed, using local analysis:', aiResponse.error);
-      return this.getLocalAIAnalysis(text);
+      return this.getLocalAIAnalysis();
     }
 
     // Return default analysis if no fallback
@@ -498,7 +498,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
   /**
    * Local AI analysis as fallback
    */
-  private getLocalAIAnalysis(text: string): TextAnalysis['aiAnalysis'] {
+  private getLocalAIAnalysis(): TextAnalysis['aiAnalysis'] {
     // For now, return default analysis
     // You can implement local analysis logic here if needed
     return this.getDefaultAIAnalysis();

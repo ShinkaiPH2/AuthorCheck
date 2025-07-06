@@ -122,3 +122,4 @@ docker-compose.override.yml
 
 # VSCODe
 .vscode/
+.vercel

@@ -1,4 +1,4 @@
-import { ReactNode, ButtonHTMLAttributes, createContext, useContext } from 'react';
+import { ReactNode, ButtonHTMLAttributes } from 'react';
 
 export interface TextAnalysis {
   wordCount: number;

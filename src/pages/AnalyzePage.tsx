@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { TextAnalysis } from '../types';
-import { ThemeToggle } from '../components/ui/ThemeToggle';
 import { AnalysisDisplay } from '../components/analysis/AnalysisDisplay';
 import { analyzeText } from '../utils/textAnalysis';
-import { BrainIcon } from '../components/ui/Icons';
 import { useDebounce } from '../hooks/useDebounce';
 import { AnalysisSettings } from '../components/analysis/AnalysisSettings';
 import { HelpModal } from '../components/analysis/HelpModal';

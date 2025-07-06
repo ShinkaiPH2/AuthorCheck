@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-import { ThemeToggle } from '../components/ui/ThemeToggle';
 import { BrainIcon, ZapIcon, ShieldIcon, BarChartIcon } from '../components/ui/Icons';
 import { Navbar } from '../components/ui/Navbar';
 
