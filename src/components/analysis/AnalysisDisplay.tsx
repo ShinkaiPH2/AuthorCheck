@@ -180,8 +180,45 @@ export const AnalysisDisplay = ({ analysis, isAnalyzing, hasText }: AnalysisDisp
       </div>
 
       {/* Tab Content */}
+
       {activeTab === 'overview' && (
         <div className="space-y-6" role="tabpanel" id="overview-panel" aria-labelledby="overview-tab">
+          {/* AI vs Human Classification Card */}
+          <Card>
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-800 dark:text-gray-200 flex items-center space-x-2">
+              <div className="w-6 h-6 bg-gradient-to-r from-futuristic-cyan to-futuristic-purple rounded-lg flex items-center justify-center">
+                <RobotIcon size={14} className="text-white" />
+              </div>
+              <span>AI vs Human</span>
+            </h3>
+            <div className="flex items-center space-x-4">
+              <span className={`text-xl font-bold capitalize ${
+                analysis.aiAnalysis?.aiOrHuman === 'ai'
+                  ? 'text-blue-600 dark:text-blue-400'
+                  : analysis.aiAnalysis?.aiOrHuman === 'human'
+                  ? 'text-green-600 dark:text-green-400'
+                  : 'text-gray-600 dark:text-gray-400'
+              }`}>
+                {analysis.aiAnalysis?.aiOrHuman === 'ai'
+                  ? 'AI-Generated'
+                  : analysis.aiAnalysis?.aiOrHuman === 'human'
+                  ? 'Human-Generated'
+                  : 'Unknown'}
+              </span>
+              {typeof analysis.aiAnalysis?.aiOrHumanConfidence === 'number' && (
+                <span className="text-sm text-gray-500">
+                  {analysis.aiAnalysis.aiOrHumanConfidence}% confidence
+                </span>
+              )}
+            </div>
+            {analysis.aiAnalysis?.aiOrHumanExplanation && (
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                {analysis.aiAnalysis.aiOrHumanExplanation}
+              </p>
+            )}
+          </Card>
+
+          {/* Text Statistics Card */}
           <Card>
             <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-800 dark:text-gray-200 flex items-center space-x-2">
               <div className="w-6 h-6 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">

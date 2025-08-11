@@ -65,6 +65,9 @@ interface AIAnalysisResponse {
       engagement: number;
       originality: number;
     };
+    aiOrHuman?: 'ai' | 'human' | 'unknown';
+    aiOrHumanConfidence?: number;
+    aiOrHumanExplanation?: string;
   };
   error?: string;
 }
@@ -376,10 +379,13 @@ Please provide analysis in the following JSON format:
     "coherence": 88,
     "engagement": 82,
     "originality": 87
-  }
+  },
+  "aiOrHuman": "ai|human|unknown",
+  "aiOrHumanConfidence": 92,
+  "aiOrHumanExplanation": "This text is likely AI-generated because of its consistent tone, lack of personal anecdotes, and formal structure."
 }
 
-Focus on providing accurate, detailed analysis. Ensure all scores are between 0-100 and relevance scores are between 0-1.`;
+Focus on providing accurate, detailed analysis. Ensure all scores are between 0-100 and relevance scores are between 0-1. For aiOrHuman, classify as 'ai' if the text is likely AI-generated, 'human' if likely human-written, or 'unknown' if unsure.`;
   }
 
   /**
@@ -433,8 +439,7 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
       }
 
       const parsedData = JSON.parse(jsonMatch[0]);
-      
-      // Validate and return the parsed data
+
       return {
         advancedSentiment: parsedData.advancedSentiment || {
           emotions: [],
@@ -462,6 +467,9 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
           engagement: 0,
           originality: 0,
         },
+        aiOrHuman: parsedData.aiOrHuman || 'unknown',
+        aiOrHumanConfidence: parsedData.aiOrHumanConfidence !== undefined ? parsedData.aiOrHumanConfidence : 0,
+        aiOrHumanExplanation: parsedData.aiOrHumanExplanation || 'Explanation not available',
       };
     } catch (error) {
       console.error('Failed to parse LLM response:', error);
@@ -535,6 +543,9 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
         engagement: 0,
         originality: 0,
       },
+      aiOrHuman: 'unknown',
+      aiOrHumanConfidence: 0,
+      aiOrHumanExplanation: 'Analysis not available',
     };
   }
 
@@ -625,4 +636,4 @@ Focus on providing accurate, detailed analysis. Ensure all scores are between 0-
 export const aiService = new AIService();
 
 // Export for testing or custom instances
-export { AIService, type AIConfig, type AIAnalysisRequest, type AIAnalysisResponse }; 
+export { AIService, type AIConfig, type AIAnalysisRequest, type AIAnalysisResponse };

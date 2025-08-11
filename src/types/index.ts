@@ -62,6 +62,9 @@ export interface TextAnalysis {
       engagement: number;
       originality: number;
     };
+    aiOrHuman?: 'ai' | 'human' | 'unknown';
+    aiOrHumanConfidence?: number; // 0-100
+    aiOrHumanExplanation?: string;
   };
 }
 
