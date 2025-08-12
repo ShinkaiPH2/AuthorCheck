@@ -1,5 +1,10 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
-} 
+  ],
+  "functions": {
+    "api/external.ts": {
+      "maxDuration": 60
+    }
+  }
+}
