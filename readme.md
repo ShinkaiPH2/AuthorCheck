@@ -352,9 +352,9 @@ npm run build
 
 ## 📄 License
 
-This project is licensed under a Custom License - see the [LICENSE.txt](LICENSE.txt) file for details.
+This project is licensed under the Apache License, Version 2.0 – see the [LICENSE.txt](LICENSE.txt) file for details.
 
-**Summary**: Permission is granted to view and use this software for personal and non-commercial purposes only. Modification, redistribution, or creation of derivative works is strictly prohibited without express written consent.
+**Summary**: You are free to use, modify, and distribute this software under the terms of the Apache License 2.0, provided that proper attribution is given and any modifications are documented.
 
 ## 👤 Author
 
