@@ -1,10 +1,8 @@
-# AuthorCheck 🧠
+# ![AuthorCheck](./public/favicon.png) AuthorCheck ![AuthorCheck](./public/favicon.png)
 
 **AI-Powered Text Analysis Tool**
 
 A modern, comprehensive text analysis application that uses advanced AI to provide insights into writing quality, sentiment, authorship detection, and much more. Built with React, TypeScript, and Tailwind CSS, powered by multiple AI models including Gemini, OpenAI, and Claude.
-
-![AuthorCheck](./public/favicon.png)
 
 ## ✨ Features
 
